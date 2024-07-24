@@ -1,4 +1,4 @@
--- Crear tabla Country
+-- Create Country table
 CREATE TABLE Country (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -6,7 +6,7 @@ CREATE TABLE Country (
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Crear tabla File
+-- Create File table
 CREATE TABLE File (
     id SERIAL PRIMARY KEY,
     file_name VARCHAR(255) NOT NULL,
@@ -17,7 +17,7 @@ CREATE TABLE File (
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Crear tabla Person
+-- Create Person table
 CREATE TABLE Person (
     id SERIAL PRIMARY KEY,
     first_name VARCHAR(100) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE Person (
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Crear tabla AppUser (anteriormente User)
+-- Create AppUser table  (USER)
 CREATE TABLE AppUser (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
@@ -44,7 +44,7 @@ CREATE TABLE AppUser (
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Crear tabla Movie
+-- Create Movie table
 CREATE TABLE Movie (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -59,20 +59,20 @@ CREATE TABLE Movie (
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Crear tabla Genre
+-- Create Genre table
 CREATE TABLE Genre (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL
 );
 
--- Crear tabla MovieGenre
+-- Create MovieGenre table
 CREATE TABLE MovieGenre (
     movie_id INT REFERENCES Movie(id),
     genre_id INT REFERENCES Genre(id),
     PRIMARY KEY (movie_id, genre_id)
 );
 
--- Crear tabla Character
+-- Create Character table
 CREATE TABLE Character (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE Character (
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Crear tabla FavoriteMovies
+-- Create FavoriteMovies table
 CREATE TABLE FavoriteMovies (
     user_id INT REFERENCES AppUser(id),
     movie_id INT REFERENCES Movie(id),
